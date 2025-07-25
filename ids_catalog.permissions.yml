@@ -1,0 +1,4 @@
+'ids_catalog view all':
+  title: 'ids_catalog view all'
+  description: 'ids_catalog view all'
+  restrict access: true

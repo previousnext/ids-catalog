@@ -1,0 +1,22 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  paramconverter.ids_catalog_scenario_converter:
+    class: Drupal\ids_catalog\ParamConverter\IdsCatalogScenarioConverter
+    tags:
+      - { name: paramconverter }
+
+  paramconverter.ids_catalog_scenarios_converter:
+    class: Drupal\ids_catalog\ParamConverter\IdsCatalogScenariosConverter
+    tags:
+      - { name: paramconverter }
+
+  Drupal\ids_catalog\Routing\IdsCatalogRouteEnhancer:
+    tags:
+      # Priority after route_enhancer.param_conversion
+      - { name: route_enhancer, priority: 5000 }
+
+  Drupal\ids_catalog\IdsScenarios: ~

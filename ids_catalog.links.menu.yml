@@ -1,0 +1,17 @@
+ids_catalog:
+  class: Drupal\Core\Menu\MenuLinkDefault
+  deriver: Drupal\ids_catalog\Plugin\Derivative\IdsCatalogMenuLinks
+  menu_name: admin
+
+ids.report.root:
+  title: 'Scenarios'
+  parent: system.admin_reports
+  route_name: ids.report.root
+
+ids.catalog.enum:
+  title: 'All scenarios'
+  description: 'Single page of all scenarios in all enums.'
+  parent: ids.report.root
+  route_name: ids.catalog.enum
+  route_parameters:
+    enum: null

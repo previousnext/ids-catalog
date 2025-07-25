@@ -1,0 +1,53 @@
+ids.report.root:
+  path: '/admin/reports/ids-scenarios'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Scenarios'
+  requirements:
+    _permission: 'ids_catalog view all'
+
+ids.report.enum:
+  path: '/admin/reports/ids-scenarios/{enum}'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+  requirements:
+    _permission: 'ids_catalog view all'
+
+ids.report.enum.scenarios:
+  path: '/admin/reports/ids-scenarios/{enum}/scenarios'
+  defaults:
+    _title: 'Scenarios in @enum'
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+  requirements:
+    _permission: 'ids_catalog view all'
+
+# @todo a breadcrumb builder to bring these two routes under their parent menu link.
+ids.catalog.enum:
+  path: '/ids-scenarios/{enum}'
+  defaults:
+    _controller: '\Drupal\ids_catalog\Controller\Scenarios'
+    enum: null
+  requirements:
+    _permission: 'ids_catalog view all'
+  options:
+    parameters:
+      enum:
+        # Type: \Drupal\ids_catalog\ParamConverter\IdsCatalogScenariosConverter
+        type: 'ids_catalog_enum_short_name'
+
+ids.catalog.scenario:
+  path: '/ids-scenarios/{enum}/{case}/{scenario}'
+  defaults:
+    _title: 'Sandbox'
+    _controller: '\Drupal\ids_catalog\Controller\Scenario'
+  requirements:
+    _permission: 'ids_catalog view all'
+  options:
+    parameters:
+      # Types: \Drupal\ids_catalog\ParamConverter\IdsCatalogScenarioConverter
+      enum:
+        type: 'ids_catalog_scenario:enum'
+      case:
+        type: 'ids_catalog_scenario:case'
+      scenario:
+        type: 'ids_catalog_scenario:scenario'

@@ -1,0 +1,12 @@
+{
+    "name": "previousnext/ids_catalog",
+    "type": "drupal-module",
+    "version": "0.0.1",
+    "keywords": [
+        "dev"
+    ],
+    "require": {
+        "php": ">=8.2"
+    },
+    "license": "proprietary"
+}
