@@ -19,4 +19,5 @@ services:
       # Priority after route_enhancer.param_conversion
       - { name: route_enhancer, priority: 5000 }
 
-  Drupal\ids_catalog\IdsScenarios: ~
+  Drupal\ids_catalog\IdsScenarios:
+    public: true

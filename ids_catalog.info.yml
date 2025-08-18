@@ -3,3 +3,5 @@ type: module
 description: Render out all components using Drupal's rendering system and outside of themes.
 core_version_requirement: ^11.1
 php: 8.2
+dependencies:
+  - pinto:pinto
