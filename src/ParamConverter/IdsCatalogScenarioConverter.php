@@ -26,7 +26,7 @@ final class IdsCatalogScenarioConverter implements ParamConverterInterface {
    * @phpstan-ignore-next-line
    */
   public function convert($value, $definition, $name, array $defaults) {
-    /** @var \Symfony\Component\HttpFoundation\InputBag|null $rawVariables */
+    /** @var \Symfony\Component\HttpFoundation\InputBag<string>|null $rawVariables */
     $rawVariables = $defaults['_raw_variables'] ?? NULL;
 
     $enum = $rawVariables?->get('enum') ?? $defaults['enum'];
