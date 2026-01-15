@@ -14,7 +14,7 @@ use PreviousNext\IdsTools\Scenario\Scenarios;
 final class IdsScenarios {
 
   /**
-   * @var \SplObjectStorage<\PreviousNext\IdsTools\Scenario\CompiledScenario, object&callable>|null
+   * @var \SplObjectStorage<\PreviousNext\IdsTools\Scenario\CompiledScenario, \PreviousNext\IdsTools\Scenario\ScenarioSubject>|null
    */
   private ?\SplObjectStorage $scenarios = NULL;
 
@@ -24,14 +24,14 @@ final class IdsScenarios {
   }
 
   /**
-   * @phpstan-return \SplObjectStorage<\PreviousNext\IdsTools\Scenario\CompiledScenario, object&callable>
+   * @phpstan-return \SplObjectStorage<\PreviousNext\IdsTools\Scenario\CompiledScenario, \PreviousNext\IdsTools\Scenario\ScenarioSubject>
    */
   public function scenarios(): \SplObjectStorage {
     return $this->scenarios ??= (function () {
-      /** @var \SplObjectStorage<\PreviousNext\IdsTools\Scenario\CompiledScenario, object&callable> $scenarios */
+      /** @var \SplObjectStorage<\PreviousNext\IdsTools\Scenario\CompiledScenario, \PreviousNext\IdsTools\Scenario\ScenarioSubject> $scenarios */
       $scenarios = new \SplObjectStorage();
-      foreach (Scenarios::findScenarios($this->pintoMapping) as $scenario => $scenarioObject) {
-        $scenarios[$scenario] = $scenarioObject;
+      foreach (Scenarios::findScenarios($this->pintoMapping) as $scenario => $scenarioSubject) {
+        $scenarios[$scenario] = $scenarioSubject;
       }
       return $scenarios;
     })();

@@ -41,10 +41,10 @@ final class Scenarios extends ControllerBase {
         continue;
       }
 
-      $scenarioObject = $scenarios[$scenario];
+      $scenarioSubject = $scenarios[$scenario];
       $build[(string) $scenario]['title'] = ['#markup' => '<strong>' . (string) $scenario . '</strong>'];
       $build[(string) $scenario]['object']['#prefix'] = '<div>';
-      $build[(string) $scenario]['object']['object'] = $scenarioObject();
+      $build[(string) $scenario]['object']['object'] = ($scenarioSubject->obj)();
       $build[(string) $scenario]['object']['#suffix'] = '</div>';
       $build[(string) $scenario][] = ['#markup' => '<hr />'];
     }

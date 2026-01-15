@@ -19,6 +19,7 @@ use Drupal\ids_catalog\IdsScenarios;
 use Drupal\ids_catalog\IdsScenarioUrl;
 use PreviousNext\IdsTools\Pinto\VisualRegressionContainer\VisualRegressionContainer;
 use PreviousNext\IdsTools\Scenario\CompiledScenario;
+use PreviousNext\IdsTools\Scenario\ScenarioSubject;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 final class Scenario extends ControllerBase {
@@ -36,8 +37,8 @@ final class Scenario extends ControllerBase {
     $this->languageManager = $languageManager;
   }
 
-  public function __invoke(CompiledScenario $scenario, object $scenarioObject): HtmlResponse {
-    \assert(\is_callable($scenarioObject));
+  public function __invoke(CompiledScenario $scenario, ScenarioSubject $scenarioSubject): HtmlResponse {
+    $scenarioObject = $scenarioSubject->renderableObject();
 
     // @todo change this entire page to just render in the frontend theme (?!?)
     // or make configurable, via a service parameter, that can be toggled in something like settings.local.yml, which
@@ -45,7 +46,7 @@ final class Scenario extends ControllerBase {
     $before = $this->scenarios->scenarioBefore($scenario);
     $after = $this->scenarios->scenarioAfter($scenario);
 
-    $build = $scenarioObject();
+    $build = ($scenarioSubject->renderableObject())();
 
     $render_context = new RenderContext();
     $inner = NULL;

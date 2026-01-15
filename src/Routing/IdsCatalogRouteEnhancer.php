@@ -27,7 +27,7 @@ class IdsCatalogRouteEnhancer implements EnhancerInterface {
       /** @var \PreviousNext\IdsTools\Scenario\CompiledScenario $requestScenario */
       $requestScenario = $defaults['scenario'] ?? throw new \LogicException();
 
-      $defaults['scenarioObject'] = $this->scenarios->scenarios()[$requestScenario] ?? throw new \LogicException('Impossible');
+      $defaults['scenarioSubject'] = $this->scenarios->scenarios()[$requestScenario] ?? throw new \LogicException('Impossible');
     }
 
     /** @var T */
