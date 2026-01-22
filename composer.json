@@ -1,7 +1,6 @@
 {
     "name": "previousnext/ids-catalog",
     "type": "drupal-module",
-    "version": "0.0.1",
     "keywords": [
         "dev"
     ],
