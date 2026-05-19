@@ -47,7 +47,7 @@ final class IdsCatalogMenuLinks extends DeriverBase implements ContainerDeriverI
       $weight++;
       $url = IdsScenarioUrl::fromScenario($scenario);
 
-      $rEnum = new \ReflectionClass(($scenario->pintoEnum ?? throw new \LogicException())::class);
+      $rEnum = new \ReflectionClass($scenario->pintoEnum::class);
       $enumShort = $rEnum->getShortName();
       $enumShorts[$enumShort] = $rEnum;
       $id = \sprintf('%s|%s|%s', $enumShort, $scenario->pintoEnum->name, $scenario->id);

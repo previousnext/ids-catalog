@@ -10,7 +10,7 @@ use PreviousNext\IdsTools\Scenario\CompiledScenario;
 final class IdsScenarioUrl {
 
   public static function fromScenario(CompiledScenario $scenario): Url {
-    $rEnum = new \ReflectionClass(($scenario->pintoEnum ?? throw new \LogicException())::class);
+    $rEnum = new \ReflectionClass($scenario->pintoEnum::class);
     return Url::fromRoute('ids.catalog.scenario', [
       'enum' => $rEnum->getShortName(),
       'case' => $scenario->pintoEnum->name,

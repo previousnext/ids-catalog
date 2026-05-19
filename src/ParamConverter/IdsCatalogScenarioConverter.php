@@ -43,7 +43,7 @@ final class IdsCatalogScenarioConverter implements ParamConverterInterface {
     }
 
     foreach ($this->scenarios->scenarios() as $scenario) {
-      $rEnum = new \ReflectionClass(($scenario->pintoEnum ?? throw new \LogicException())::class);
+      $rEnum = new \ReflectionClass($scenario->pintoEnum::class);
       $enumScenario = $rEnum->getShortName();
       $caseScenario = $scenario->pintoEnum->name;
       $scenarioIdScenario = $scenario->id;
