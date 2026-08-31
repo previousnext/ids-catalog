@@ -8,11 +8,13 @@ services:
     class: Drupal\ids_catalog\ParamConverter\IdsCatalogScenarioConverter
     tags:
       - { name: paramconverter }
+    public: true
 
   paramconverter.ids_catalog_scenarios_converter:
     class: Drupal\ids_catalog\ParamConverter\IdsCatalogScenariosConverter
     tags:
       - { name: paramconverter }
+    public: true
 
   Drupal\ids_catalog\Routing\IdsCatalogRouteEnhancer:
     tags:
